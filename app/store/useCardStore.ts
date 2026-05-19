@@ -9,6 +9,7 @@ import { CreditCard, CardStore } from '../types/index'
 const useCardStore = create<CardStore>()(
     persist(
         (set) => ({
+            // cards array that holds the state of cards 
             cards: [],
 
             addCard: (card) =>
