@@ -33,4 +33,20 @@ export default function CardManager() {
         setIssuer("");
         setRates(initialRates);
     } 
+    return (
+    <section className="flex w-full max-w-2xl flex-col gap-5">
+        <form onSubmit={handleAddCard} className="flex flex-col gap-4">
+            <input
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+                placeholder="Card name"
+                className="rounded border px-3 py-2"
+            />
+            <input
+                value={}
+            />
+            
+        </form>
+    </section>
+    );
 }
