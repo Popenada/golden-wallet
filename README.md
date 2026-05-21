@@ -3,6 +3,7 @@
 **Live demo:** [golden-wallet-chi.vercel.app](https://golden-wallet-chi.vercel.app)
 
 A credit card rewards optimizer that tells you which card to use for any purchase to maximize cashback or points earned.
+
 <img width="1393" height="769" alt="Kapture 2026-05-21 at 15 55 10" src="https://github.com/user-attachments/assets/7690b6af-dbc5-4dfa-bf7b-cac20b93172b" />
 
 
