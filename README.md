@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Golden Wallet
+
+**Live demo:** [golden-wallet-chi.vercel.app](https://golden-wallet-chi.vercel.app)
+
+A credit card rewards optimizer that tells you which card to use for any purchase to maximize cashback or points earned.
+
+## Features
+
+- **Card Manager** — Add cards with per-category reward rates (dining, groceries, travel, gas, entertainment, other)
+- **Purchase Advisor** — Select a spending category and purchase amount to instantly rank all your cards by rewards earned
+- **Persistent storage** — Cards are saved to localStorage via Zustand persist middleware, so your wallet survives page refreshes
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| Language | TypeScript 5 |
+| Styling | Tailwind CSS v4 |
+| State | Zustand v5 with `persist` middleware |
+| Runtime | React 19 |
+
+## Project Structure
+
+```
+app/
+├── components/
+│   ├── CardManager/       # Form to add/remove cards and their reward rates
+│   └── PurchaseAdvisor/   # Category + amount selector with ranked results
+├── store/
+│   └── useCardStore.ts    # Zustand store (cards, addCard, removeCard)
+├── types/
+│   └── index.tsx          # CreditCard, RewardRates, OptimizationResult types
+├── utils/
+│   ├── optimizer.ts       # getBestCard — ranks cards by reward amount for a category
+│   └── constants.ts       # Shared category list
+├── globals.css            # Tailwind base + golden wallet theme variables
+└── page.tsx               # Root layout with two-panel grid
+```
+
+## How the Optimizer Works
+
+`getBestCard(cards, category, amount)` maps each card to its reward amount using:
+
+```
+rewardAmount = amount × (rewardRate / 100)
+```
+
+Cards are then sorted descending by `rewardAmount`, so the first result is always the highest-earning card for that category and spend.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build   # production build
+npm run lint    # ESLint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Adding a Card
 
-## Learn More
+1. Enter the card name and optional issuer
+2. Fill in reward percentages for each spending category (leave at 0 if the card earns nothing for that category)
+3. Click **Add Card** — it appears in your wallet immediately and persists across sessions
 
-To learn more about Next.js, take a look at the following resources:
+## Finding the Best Card
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Select a spending category from the dropdown
+2. Enter the purchase amount
+3. Click **Find Best Card** — your cards are ranked by cash earned, with gold/silver/bronze badges for the top three
