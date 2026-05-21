@@ -7,15 +7,7 @@ export type RewardRates = {
   entertainment: number
   other: number
 }
-// Category types
-export const categories: (keyof RewardRates)[] = [
-  "dining",
-  "groceries",
-  "travel",
-  "gas",
-  "entertainment",
-  "other",
-];
+
 // Credit card types
 export type CreditCard = {
     id: string

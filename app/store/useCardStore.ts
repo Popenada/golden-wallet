@@ -1,8 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { CreditCard, CardStore } from '../types/index'
-
-
+import { CardStore } from '../types/index'
 
 // Use persist middleware so credit card info is saved
 // User enters card information types and card id is automatically generated
