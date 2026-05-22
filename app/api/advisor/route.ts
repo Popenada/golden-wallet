@@ -26,12 +26,11 @@ export async function POST(request: NextRequest) {
             })
             const message = completed.choices[0].message.content
             return NextResponse.json({ recommendation: message })
-            
+
     } catch (error) {
         return NextResponse.json(
             { error: 'Failed to get recommendation' },
             { status: 500 }
         )
-
     }
 }
