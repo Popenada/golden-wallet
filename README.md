@@ -4,7 +4,8 @@
 
 A credit card rewards optimizer that tells you which card to use for any purchase to maximize cashback or points earned.
 
-![Uploading GoldenWalletDemo.gif…]()
+<img width="884" height="507" alt="GoldenWalletDemo" src="https://github.com/user-attachments/assets/4ac2a4cf-afca-4808-af5f-c4dca3015187" />
+
 
 ## Features
 
