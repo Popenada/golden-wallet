@@ -2,161 +2,131 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
 
-const navLinks = [
-  { label: "AI Advisor", href: "/#ai-advisor" },
-  { label: "How it works", href: "#how-it-works" },
-  { label: "Card guides", href: "#" },
-  { label: "Learn", href: "#" },
-  { label: "Pricing", href: "#" },
-];
-
 const steps = [
   {
-    number: "1",
-    title: "Add cards",
-    copy: "Securely link your cards in seconds.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-        <path d="M10 4v12M4 10h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-      </svg>
-    ),
+    number: "01",
+    title: "Save the cards you actually carry",
+    copy: "Add reward rates once, then let Golden Wallet compare them when a purchase is in front of you.",
   },
   {
-    number: "2",
-    title: "Describe spend",
-    copy: "Tell us about your lifestyle and spending.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-        <path d="M4 6h12M4 10h8M4 14h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-      </svg>
-    ),
+    number: "02",
+    title: "Describe your spending in plain English",
+    copy: "Tell the AI Advisor how you shop, eat, travel, and fill the gaps that category math misses.",
   },
   {
-    number: "3",
-    title: "Get the card",
-    copy: "We recommend the best card for you to apply.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-        <rect x="2" y="5" width="16" height="11" rx="2" stroke="currentColor" strokeWidth="2"/>
-        <path d="M2 9h16" stroke="currentColor" strokeWidth="2"/>
-      </svg>
-    ),
+    number: "03",
+    title: "Use the card with the clearest upside",
+    copy: "See the recommendation, the reason, and the reward context before you pay.",
   },
+];
+
+const cards = [
+  { name: "Everyday Cash", issuer: "2% dining", tone: "calm" },
+  { name: "Voyage Preferred", issuer: "4% travel", tone: "gold" },
+  { name: "Market Plus", issuer: "3% groceries", tone: "green" },
 ];
 
 export const metadata = {
-  title: "Golden Wallet | A smarter card choice",
+  title: "Golden Wallet | Try the AI Advisor",
   description:
-    "Personalized credit card recommendations. Real value. No guesswork.",
+    "Ask Golden Wallet which credit card to use before you pay. Compare rewards and get AI guidance from your saved cards.",
 };
 
 export default function LandingPage() {
   return (
     <main className={styles.page}>
-      <nav className={styles.nav} aria-label="Site navigation">
+      <nav className={styles.nav} aria-label="Landing page navigation">
         <Link className={styles.brand} href="/">
-          <span className={styles.mark} aria-hidden="true">G</span>
+          <span className={styles.mark} aria-hidden="true">
+            GW
+          </span>
           <span>Golden Wallet</span>
         </Link>
-
-        <div className={styles.navCenter}>
-          {navLinks.map((link) => (
-            <Link key={link.label} className={styles.navLink} href={link.href}>
-              {link.label}
-            </Link>
-          ))}
-        </div>
-
         <div className={styles.navActions}>
-          <Link className={styles.signIn} href="/">Sign in</Link>
-          <Link className={styles.navButton} href="/#ai-advisor">Try AI Advisor</Link>
+          <Link className={styles.navLink} href="/">
+            Open optimizer
+          </Link>
+          <Link className={styles.navButton} href="/#ai-advisor">
+            Try AI Advisor
+          </Link>
         </div>
       </nav>
 
       <section className={styles.hero} aria-labelledby="landing-title">
         <div className={styles.heroCopy}>
-          <h1 id="landing-title">
-            A smarter<br />card choice,<br />before you pay
-          </h1>
+          <p className={styles.kicker}>Personal finance companion</p>
+          <h1 id="landing-title">Ask your wallet which card to use.</h1>
           <p className={styles.lede}>
-            Personalized recommendations.<br />
-            Real value. No guesswork.
+            Golden Wallet turns your saved reward rates and everyday spending
+            habits into a clear card recommendation before you pay.
           </p>
           <div className={styles.ctaRow}>
             <Link className={styles.primaryCta} href="/#ai-advisor">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className={styles.ctaIcon}>
-                <path d="M8 2l1.5 3.5L13 7l-3.5 1.5L8 12l-1.5-3.5L3 7l3.5-1.5L8 2z" fill="currentColor"/>
-              </svg>
               Try AI Advisor
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+            </Link>
+            <Link className={styles.secondaryCta} href="/">
+              Compare rewards
             </Link>
           </div>
-          <div className={styles.trustRow}>
-            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true" className={styles.shieldIcon}>
-              <path d="M7.5 1.5L2 4v4c0 3.1 2.3 5.9 5.5 6.5C10.7 13.9 13 11.1 13 8V4L7.5 1.5z" stroke="currentColor" strokeWidth="1.25" strokeLinejoin="round"/>
-            </svg>
-            <div>
-              <span className={styles.trustMain}>Trusted by 260,000+ members</span>
-              <span className={styles.trustSub}>Bank-level security · No credit score required</span>
-            </div>
-          </div>
+          <p className={styles.trustLine}>
+            Built for everyday card choices, not trader screens or reward-program
+            homework.
+          </p>
         </div>
 
-        <div className={styles.heroVisual} aria-label="AI card recommendation preview">
+        <div className={styles.heroVisual} aria-label="Golden Wallet AI advisor preview">
           <Image
             src="/landing/wallet-card-hero.png"
-            alt="A black leather wallet with a matte gold credit card"
+            alt="A black leather wallet with a matte gold credit card partly visible"
             fill
             priority
-            sizes="(max-width: 900px) 100vw, 52vw"
+            sizes="(max-width: 900px) 100vw, 48vw"
             className={styles.heroImage}
           />
-          <div className={styles.recCard}>
-            <div className={styles.recBadge}>
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-                <path d="M5 0.5L6.2 3.8L9.5 5L6.2 6.2L5 9.5L3.8 6.2L0.5 5L3.8 3.8L5 0.5Z" fill="currentColor"/>
-              </svg>
-              AI Recommendation
+          <div className={styles.previewShell}>
+            <div className={styles.previewHeader}>
+              <span>AI Advisor</span>
+              <span className={styles.readyDot}>Ready</span>
             </div>
-            <div className={styles.recBody}>
-              <div className={styles.recInfo}>
-                <p className={styles.recLabel}>Your best card right now</p>
-                <p className={styles.recName}>Amex Gold Card</p>
-                <p className={styles.recValue}>$1,248 potential annual value →</p>
-              </div>
-              <div className={styles.recCardArt}>
-                <div className={styles.cardChip} aria-hidden="true" />
-                <div className={styles.cardLogo} aria-hidden="true">AMEX</div>
-              </div>
+
+            <div className={styles.cardStack} aria-label="Saved card examples">
+              {cards.map((card) => (
+                <div className={styles.miniCard} data-tone={card.tone} key={card.name}>
+                  <span>{card.name}</span>
+                  <small>{card.issuer}</small>
+                </div>
+              ))}
+            </div>
+
+            <div className={styles.promptBox}>
+              I dine out most weekends, buy groceries weekly, and have one trip
+              coming up next month.
+            </div>
+
+            <div className={styles.answerBox}>
+              <p className={styles.answerLabel}>Recommendation</p>
+              <h2>Use Voyage Preferred for travel, then Everyday Cash for dining.</h2>
+              <p>
+                Your travel reward rate wins for the upcoming trip. For smaller
+                meals, steady cash back keeps the choice simple.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="how-it-works" className={styles.steps} aria-labelledby="steps-title">
-        <h2 id="steps-title" className={styles.stepsHeading}>
-          Your journey<br />to a better card
-        </h2>
-        <div className={styles.stepFlow}>
-          {steps.map((step, i) => (
-            <>
-              <article className={styles.step} key={step.number}>
-                <div className={styles.stepIcon}>{step.icon}</div>
-                <div>
-                  <h3 className={styles.stepTitle}>{step.number}. {step.title}</h3>
-                  <p className={styles.stepCopy}>{step.copy}</p>
-                </div>
-              </article>
-              {i < steps.length - 1 && (
-                <div className={styles.stepArrow} aria-hidden="true" key={`arrow-${i}`}>
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M5 10h10M11 6l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-              )}
-            </>
+      <section className={styles.steps} aria-labelledby="steps-title">
+        <div>
+          <p className={styles.kicker}>How it works</p>
+          <h2 id="steps-title">A better answer than mental math.</h2>
+        </div>
+        <div className={styles.stepGrid}>
+          {steps.map((step) => (
+            <article className={styles.step} key={step.number}>
+              <span>{step.number}</span>
+              <h3>{step.title}</h3>
+              <p>{step.copy}</p>
+            </article>
           ))}
         </div>
       </section>
