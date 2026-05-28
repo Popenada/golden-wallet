@@ -3,14 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./landing/page.module.css";
 
-const navLinks = [
-  { label: "AI Advisor", href: "/optimizer#ai-advisor" },
-  { label: "How it works", href: "#how-it-works" },
-  { label: "Card guides", href: "#" },
-  { label: "Learn", href: "#" },
-  { label: "Pricing", href: "#" },
-];
-
 const steps = [
   {
     number: "1",
@@ -60,14 +52,6 @@ export default function LandingPage() {
           <span>Golden Wallet</span>
         </Link>
 
-        <div className={styles.navCenter}>
-          {navLinks.map((link) => (
-            <Link key={link.label} className={styles.navLink} href={link.href}>
-              {link.label}
-            </Link>
-          ))}
-        </div>
-
         <div className={styles.navActions}>
           <Link className={styles.signIn} href="/optimizer">Sign in</Link>
           <Link className={styles.navButton} href="/optimizer#ai-advisor">Try AI Advisor</Link>
@@ -93,15 +77,6 @@ export default function LandingPage() {
                 <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </Link>
-          </div>
-          <div className={styles.trustRow}>
-            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true" className={styles.shieldIcon}>
-              <path d="M7.5 1.5L2 4v4c0 3.1 2.3 5.9 5.5 6.5C10.7 13.9 13 11.1 13 8V4L7.5 1.5z" stroke="currentColor" strokeWidth="1.25" strokeLinejoin="round"/>
-            </svg>
-            <div>
-              <span className={styles.trustMain}>Trusted by 260,000+ members</span>
-              <span className={styles.trustSub}>Bank-level security · No credit score required</span>
-            </div>
           </div>
         </div>
 
