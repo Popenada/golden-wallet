@@ -20,7 +20,7 @@ export default function Home() {
           <div>
             <h1 className="text-[2.5rem] font-bold leading-tight tracking-tight">
               Find the best card for{" "}
-              <span className="bg-gradient-to-r from-[#D4AF37] to-[#F5C842] bg-clip-text text-transparent">
+              <span className="text-[#D4AF37]">
                 every purchase.
               </span>
             </h1>

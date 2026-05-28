@@ -26,10 +26,17 @@
   box-sizing: border-box;
 }
 
-.nav {
+.navWrapper {
   position: sticky;
   top: 0;
   z-index: 10;
+  background: oklch(11% 0.012 72 / 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid oklch(27% 0.026 72 / 0.55);
+}
+
+.nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -140,6 +147,7 @@
   font-size: 0.75rem;
   font-weight: 800;
   text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
 .hero h1,
@@ -360,20 +368,23 @@
 }
 
 .step {
-  padding: 1.25rem 0;
+  padding: 1.5rem 0;
   border-top: 1px solid var(--wallet-border);
 }
 
 .step span {
-  color: var(--gold);
-  font-size: 0.75rem;
+  display: block;
+  color: oklch(76% 0.13 86 / 0.5);
+  font-size: 2.25rem;
+  line-height: 1;
   font-weight: 900;
+  letter-spacing: -0.03em;
 }
 
 .step h3 {
-  margin: 0.75rem 0 0;
+  margin: 1rem 0 0;
   color: var(--wallet-text);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.35;
 }
 
@@ -456,6 +467,10 @@
 @media (min-width: 1120px) {
   .hero h1 {
     font-size: 5.6rem;
+  }
+
+  .steps h2 {
+    font-size: 3.5rem;
   }
 
   .heroVisual {

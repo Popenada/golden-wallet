@@ -35,6 +35,7 @@ export const metadata = {
 export default function LandingPage() {
   return (
     <main className={styles.page}>
+      <div className={styles.navWrapper}>
       <nav className={styles.nav} aria-label="Landing page navigation">
         <Link className={styles.brand} href="/">
           <span className={styles.mark} aria-hidden="true">
@@ -51,6 +52,7 @@ export default function LandingPage() {
           </Link>
         </div>
       </nav>
+      </div>
 
       <section className={styles.hero} aria-labelledby="landing-title">
         <div className={styles.heroCopy}>
@@ -117,7 +119,6 @@ export default function LandingPage() {
 
       <section className={styles.steps} aria-labelledby="steps-title">
         <div>
-          <p className={styles.kicker}>How it works</p>
           <h2 id="steps-title">A better answer than mental math.</h2>
         </div>
         <div className={styles.stepGrid}>
