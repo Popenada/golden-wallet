@@ -6,42 +6,47 @@ product
 
 ## Surfaces
 
-Golden Wallet has two design surfaces with different registers:
-- **Optimizer** (`/optimizer`): product register. Task-driven app UI for adding cards, comparing rewards, and getting AI recommendations. Default register for all design work.
-- **Landing** (`/`): brand register. Marketing surface that explains the product and drives users to try it.
+Golden Wallet has two primary surfaces:
 
-When running impeccable commands without a clear target, assume the optimizer. Specify "landing" to override.
+- **Optimizer** (`/optimizer`): the default product surface. Users add cards, enter reward rates, compare a purchase, and ask the AI Advisor for a plain-language recommendation.
+- **Landing** (`/`): a brand surface. It explains the product, shows the AI Advisor promise, and moves users into the optimizer without becoming a separate campaign system.
+
+When an impeccable command has no explicit target, treat the optimizer as the default. Use the landing register only when the task names the landing page, marketing copy, or first-visit experience.
 
 ## Users
 
-Everyday credit card holders who want to use the right card without doing mental math at checkout. They carry two to four cards, know them broadly but not their exact reward rates, and face the decision in the moment: in line, at a restaurant, booking a trip. They want a fast answer, not a finance education.
+Golden Wallet serves everyday credit card holders who carry two to four cards and want the right card at the moment of purchase. They are not optimizing like traders or points hobbyists. They are deciding in a checkout line, at a restaurant, while booking travel, or before a recurring expense. They know their cards broadly but do not want to remember every category multiplier.
+
+Their working context is quick and practical: enter a category, enter an amount, see the best card, act with confidence.
 
 ## Product Purpose
 
-Golden Wallet lets users record their cards' reward rates and immediately see which card earns the most for any purchase. AI guidance covers the cases where spending habits are easier to describe than calculate. Success is a confident card choice in seconds.
+Golden Wallet records a user's cards and reward rates, then turns those saved rates into immediate card recommendations. The optimizer handles exact category math. The AI Advisor handles spending patterns that are easier to describe than calculate.
+
+Success is not engagement, education, or financial theater. Success is a confident card choice in seconds, backed by visible rates, reward amounts, and a short reason when AI guidance is involved.
 
 ## Brand Personality
 
-Sharp, direct, earned. Golden Wallet speaks like a trusted advisor who has already done the math: no hedging, no jargon, no unnecessary warmth. The voice is financially literate and terse. The product earns authority through precision, not by dressing up as a premium brand.
+Sharp, direct, earned. Golden Wallet sounds like a trusted advisor who has already done the math: financially literate, concise, and calm under decision pressure. It should feel modern and accessible like Robinhood or Cash App at their clearest, while avoiding their speculative energy, gamification, and engagement hooks.
 
-**Reference**: Robinhood and Cash App — modern consumer finance that treats financial decisions as everyday acts, not intimidating ones. Take their clarity, boldness, and accessibility. Not their gamification, speculative energy, or engagement-bait patterns.
+The product earns authority through precision. It should never dress itself up as a luxury bank, a crypto terminal, or a rewards blog.
 
 ## Anti-references
 
-- **Crypto dashboards**: neon-on-black, trader-terminal density, hype language, token visuals, dramatic market-screen aesthetics.
-- **Bank portals**: dull hierarchy, bureaucratic copy, zero personality.
-- **Cashback aggregators**: clutter, color overload, sale-event energy.
-- **Luxury clichés**: excessive black-and-gold ornament, glossy metal textures, casino-like shine that confuses premium with spectacle.
-- **Gamified finance**: streaks, badges, confetti, engagement hooks. Golden Wallet is a utility, not a game.
+- **Crypto dashboards**: neon-on-black, trader-terminal density, token visuals, hype language, market-screen drama.
+- **Bank portals**: bureaucratic copy, dull hierarchy, generic forms, institutional distance.
+- **Cashback aggregators**: cluttered deal pages, sale-event energy, competing badges, noisy colors.
+- **Luxury finance clichés**: excessive black-and-gold ornament, glossy metal textures, casino shine.
+- **Gamified finance**: streaks, badges, confetti, challenge loops, engagement bait.
 
 ## Design Principles
 
-1. **The answer first.** The best card recommendation should be immediately visible, not the last step of a flow.
-2. **Earn authority through precision.** Numbers, rates, and rankings must be exact and grounded in the user's saved data. No vague language, no soft claims.
-3. **Finance is not complicated here.** Plain labels, clear affordances, no jargon the user didn't introduce. The tool should feel capable, not like a finance platform.
-4. **Restraint on both surfaces.** The optimizer earns trust by staying quiet. The landing earns attention without overpromising. Gold marks emphasis — nothing else should compete.
-5. **Every screen is a decision surface.** Whether comparing rates or reading a recommendation, the user is about to act. Design for the action, not the exploration.
+1. **Answer first.** The best card, reward amount, and rate should be easier to find than the controls that produced them.
+2. **Precision creates trust.** Use exact rates, dollar amounts, rankings, and saved-card data. Avoid vague confidence language.
+3. **One decision per surface.** Each panel should help users add cards, compare a purchase, ask for advice, or read a chart. Do not blur those jobs.
+4. **Gold has a job.** Gold marks brand, primary action, focus, selected emphasis, or ranking. It is not decoration.
+5. **Quiet density beats spectacle.** The optimizer can be compact, but it must stay readable and task-led. The landing can be more expressive, but it must still point to action.
 
 ## Accessibility & Inclusion
 
-WCAG AA. Clear text contrast on all surfaces. Keyboard-navigable controls. Visible focus states. Reduced-motion support. Rankings, charts, and recommendations must not rely on color alone: use labels, ordering, and numeric values so users with color-vision differences get the same answer.
+Target WCAG AA. Maintain readable contrast across dark surfaces, preserve visible focus states, and keep controls keyboard-navigable. Recommendations, rankings, and charts must not depend on color alone: pair color with order, labels, legends, numeric values, and text. Respect reduced-motion preferences, especially on the landing page reveal animations and hover transitions.

@@ -17,6 +17,12 @@ const useCardStore = create<CardStore>()(
                         {...card, id: crypto.randomUUID()},
                     ],
                 })),
+            restoreCard: (card) =>
+                set((state) => ({
+                    cards: state.cards.some((c) => c.id === card.id)
+                        ? state.cards
+                        : [...state.cards, card],
+                })),
             removeCard: (id) =>
                 set((state) => ({
                     cards: state.cards.filter((c) => c.id !== id),

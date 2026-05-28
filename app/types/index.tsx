@@ -24,6 +24,6 @@ export type OptimizationResult = {
 export type CardStore = {
     cards: CreditCard[] // Cards is type object of credit card type 
     addCard: (card: Omit<CreditCard, 'id'>) => void
+    restoreCard: (card: CreditCard) => void
     removeCard: (id: string) => void
 }
-
