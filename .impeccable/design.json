@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-28T00:38:30Z",
+  "title": "Design System: Golden Wallet",
+  "extensions": {
+    "colorMeta": {
+      "wallet-ink": {
+        "role": "neutral",
+        "displayName": "Wallet Ink",
+        "canonical": "#0C0A06",
+        "tonalRamp": ["#0C0A06", "#161209", "#1E1810"]
+      },
+      "wallet-panel": {
+        "role": "neutral",
+        "displayName": "Panel Charcoal",
+        "canonical": "#161209",
+        "tonalRamp": ["#161209", "#1E1810", "#2A2318"]
+      },
+      "wallet-text": {
+        "role": "neutral",
+        "displayName": "Warm Cream",
+        "canonical": "#F5EED6",
+        "tonalRamp": ["#5A4F3A", "#9A8A6A", "#F5EED6"]
+      },
+      "gold": {
+        "role": "primary",
+        "displayName": "Composed Gold",
+        "canonical": "#D4AF37",
+        "tonalRamp": ["#8B6914", "#B8860B", "#D4AF37", "#F0C040", "#F5C842"]
+      },
+      "success": {
+        "role": "secondary",
+        "displayName": "Earned Green",
+        "canonical": "#4ADE80",
+        "tonalRamp": ["#166534", "#22C55E", "#4ADE80"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Root page headline only."
+      },
+      "title": {
+        "displayName": "Panel Title",
+        "purpose": "Compact panel and tool-section headers."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Form text, recommendation prose, helper copy, and result details."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase form labels, chart tooltip labels, and compact brand marks."
+      }
+    },
+    "elevation": {
+      "panel": "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+      "markGlow": "0 0 16px rgba(212,175,55,0.4)",
+      "buttonRest": "0 2px 12px rgba(212,175,55,0.25)",
+      "buttonHover": "0 4px 20px rgba(212,175,55,0.4)"
+    },
+    "motion": {
+      "defaultDuration": "150ms",
+      "activeScale": "0.98",
+      "principle": "Motion should convey state: hover, focus, active, loading, or reveal."
+    },
+    "breakpoints": {
+      "sm": "640px",
+      "lg": "1024px"
+    },
+    "componentExamples": {
+      "buttonPrimary": "rounded-xl bg-gradient-to-r from-[#B8860B] to-[#D4AF37] py-2.5 text-sm font-semibold text-[#0C0A06] shadow-[0_2px_12px_rgba(212,175,55,0.25)] transition-all hover:from-[#D4AF37] hover:to-[#F0C040] hover:shadow-[0_4px_20px_rgba(212,175,55,0.4)] active:scale-[0.98]",
+      "inputField": "w-full rounded-xl bg-[#1E1810] border border-[#2A2318] px-3 py-2.5 text-sm text-[#F5EED6] placeholder-[#5A4F3A] focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/20 transition-colors",
+      "panel": "overflow-hidden rounded-2xl border border-[#2A2318] bg-[#161209] shadow-xl",
+      "emptyState": "rounded-xl border border-dashed border-[#2A2318] py-8 text-center text-sm text-[#5A4F3A]"
+    },
+    "narrative": {
+      "northStar": "The Composed Wallet",
+      "rules": [
+        "Gold should mean brand, action, focus, or ranking.",
+        "Avoid crypto dashboard signals: neon-on-black speculation, trader-terminal density, hype language, token-style visuals, and market-screen drama.",
+        "Rankings and charts must not rely on color alone."
+      ],
+      "register": "product"
+    }
+  }
+}

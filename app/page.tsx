@@ -56,7 +56,10 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-col overflow-hidden rounded-2xl border border-[#2A2318] bg-[#161209] shadow-xl">
+          <div
+            id="ai-advisor"
+            className="scroll-mt-8 flex flex-col overflow-hidden rounded-2xl border border-[#2A2318] bg-[#161209] shadow-xl"
+          >
             <div className="border-b border-[#2A2318] px-6 py-4">
               <h2 className="font-semibold text-[#F5EED6]">AI Advisor</h2>
               <p className="mt-0.5 text-xs text-[#9A8A6A]">
