@@ -43,10 +43,10 @@ export default function LandingPage() {
           <span>Golden Wallet</span>
         </Link>
         <div className={styles.navActions}>
-          <Link className={styles.navLink} href="/">
+          <Link className={styles.navLink} href="/optimizer">
             Open optimizer
           </Link>
-          <Link className={styles.navButton} href="/#ai-advisor">
+          <Link className={styles.navButton} href="/optimizer#ai-advisor">
             Try AI Advisor
           </Link>
         </div>
@@ -61,10 +61,10 @@ export default function LandingPage() {
             habits into a clear card recommendation before you pay.
           </p>
           <div className={styles.ctaRow}>
-            <Link className={styles.primaryCta} href="/#ai-advisor">
+            <Link className={styles.primaryCta} href="/optimizer#ai-advisor">
               Try AI Advisor
             </Link>
-            <Link className={styles.secondaryCta} href="/">
+            <Link className={styles.secondaryCta} href="/optimizer">
               Compare rewards
             </Link>
           </div>
