@@ -1,89 +1,166 @@
-import CardManager from "./components/CardManager";
-import PurchaseAdvisor from "./components/PurchaseAdvisor";
-import AIAdvisor from "./components/AIAdvisor";
-import CardChart from "./components/CardChart";
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import styles from "./landing/page.module.css";
 
-export default function Home() {
+const navLinks = [
+  { label: "AI Advisor", href: "/optimizer#ai-advisor" },
+  { label: "How it works", href: "#how-it-works" },
+  { label: "Card guides", href: "#" },
+  { label: "Learn", href: "#" },
+  { label: "Pricing", href: "#" },
+];
+
+const steps = [
+  {
+    number: "1",
+    title: "Add cards",
+    copy: "Securely link your cards in seconds.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M10 4v12M4 10h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+      </svg>
+    ),
+  },
+  {
+    number: "2",
+    title: "Describe spend",
+    copy: "Tell us about your lifestyle and spending.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M4 6h12M4 10h8M4 14h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+      </svg>
+    ),
+  },
+  {
+    number: "3",
+    title: "Get the card",
+    copy: "We recommend the best card for you to apply.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <rect x="2" y="5" width="16" height="11" rx="2" stroke="currentColor" strokeWidth="2"/>
+        <path d="M2 9h16" stroke="currentColor" strokeWidth="2"/>
+      </svg>
+    ),
+  },
+];
+
+export const metadata = {
+  title: "Golden Wallet | A smarter card choice",
+  description:
+    "Personalized credit card recommendations. Real value. No guesswork.",
+};
+
+export default function LandingPage() {
   return (
-    <main className="min-h-screen bg-[#0C0A06] px-6 py-12 text-[#F5EED6]">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-10">
-        <header className="flex flex-col gap-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#F0C040] via-[#D4AF37] to-[#8B6914] shadow-[0_0_16px_rgba(212,175,55,0.4)]">
-              <span className="text-[10px] font-black tracking-tight text-[#0C0A06]">GW</span>
-            </div>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#D4AF37]">
-              Golden Wallet
-            </span>
-          </div>
+    <main className={styles.page}>
+      <nav className={styles.nav} aria-label="Site navigation">
+        <Link className={styles.brand} href="/">
+          <span className={styles.mark} aria-hidden="true">G</span>
+          <span>Golden Wallet</span>
+        </Link>
 
-          <div>
-            <h1 className="text-[2.5rem] font-bold leading-tight tracking-tight">
-              Find the best card for{" "}
-              <span className="bg-gradient-to-r from-[#D4AF37] to-[#F5C842] bg-clip-text text-transparent">
-                every purchase.
-              </span>
-            </h1>
-            <p className="mt-2 max-w-lg text-[#9A8A6A]">
-              Add your cards with reward rates, then compare which earns the most
-              for any spending category.
-            </p>
-          </div>
-        </header>
+        <div className={styles.navCenter}>
+          {navLinks.map((link) => (
+            <Link key={link.label} className={styles.navLink} href={link.href}>
+              {link.label}
+            </Link>
+          ))}
+        </div>
 
-        <div className="grid items-start gap-6 lg:grid-cols-[1.3fr_0.7fr_0.7fr]">
-          <div className="flex flex-col overflow-hidden rounded-2xl border border-[#2A2318] bg-[#161209] shadow-xl">
-            <div className="border-b border-[#2A2318] px-6 py-4">
-              <h2 className="font-semibold text-[#F5EED6]">Your Cards</h2>
-              <p className="mt-0.5 text-xs text-[#9A8A6A]">
-                Save each card with its reward percentages by category.
-              </p>
-            </div>
-            <div className="p-6">
-              <CardManager />
-            </div>
-          </div>
+        <div className={styles.navActions}>
+          <Link className={styles.signIn} href="/optimizer">Sign in</Link>
+          <Link className={styles.navButton} href="/optimizer#ai-advisor">Try AI Advisor</Link>
+        </div>
+      </nav>
 
-          <div className="flex flex-col overflow-hidden rounded-2xl border border-[#2A2318] bg-[#161209] shadow-xl">
-            <div className="border-b border-[#2A2318] px-6 py-4">
-              <h2 className="font-semibold text-[#F5EED6]">Purchase Advisor</h2>
-              <p className="mt-0.5 text-xs text-[#9A8A6A]">
-                Choose a category and amount to rank your cards.
-              </p>
-            </div>
-            <div className="p-6">
-              <PurchaseAdvisor />
-            </div>
+      <section className={styles.hero} aria-labelledby="landing-title">
+        <div className={styles.heroCopy}>
+          <h1 id="landing-title">
+            A smarter<br />card choice,<br />before you pay
+          </h1>
+          <p className={styles.lede}>
+            Personalized recommendations.<br />
+            Real value. No guesswork.
+          </p>
+          <div className={styles.ctaRow}>
+            <Link className={styles.primaryCta} href="/optimizer#ai-advisor">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className={styles.ctaIcon}>
+                <path d="M8 2l1.5 3.5L13 7l-3.5 1.5L8 12l-1.5-3.5L3 7l3.5-1.5L8 2z" fill="currentColor"/>
+              </svg>
+              Try AI Advisor
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </Link>
           </div>
-
-          <div
-            id="ai-advisor"
-            className="scroll-mt-8 flex flex-col overflow-hidden rounded-2xl border border-[#2A2318] bg-[#161209] shadow-xl"
-          >
-            <div className="border-b border-[#2A2318] px-6 py-4">
-              <h2 className="font-semibold text-[#F5EED6]">AI Advisor</h2>
-              <p className="mt-0.5 text-xs text-[#9A8A6A]">
-                Describe your habits for personalized card recommendations.
-              </p>
-            </div>
-            <div className="p-6">
-              <AIAdvisor />
+          <div className={styles.trustRow}>
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true" className={styles.shieldIcon}>
+              <path d="M7.5 1.5L2 4v4c0 3.1 2.3 5.9 5.5 6.5C10.7 13.9 13 11.1 13 8V4L7.5 1.5z" stroke="currentColor" strokeWidth="1.25" strokeLinejoin="round"/>
+            </svg>
+            <div>
+              <span className={styles.trustMain}>Trusted by 260,000+ members</span>
+              <span className={styles.trustSub}>Bank-level security · No credit score required</span>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col overflow-hidden rounded-2xl border border-[#2A2318] bg-[#161209] shadow-xl">
-          <div className="border-b border-[#2A2318] px-6 py-4">
-            <h2 className="font-semibold text-[#F5EED6]">Reward Rate Comparison</h2>
-            <p className="mt-0.5 text-xs text-[#9A8A6A]">
-              Compare reward rates across all your cards by spending category.
-            </p>
-          </div>
-          <div className="p-6">
-            <CardChart />
+        <div className={styles.heroVisual} aria-label="AI card recommendation preview">
+          <Image
+            src="/landing/wallet-card-hero.png"
+            alt="A black leather wallet with a matte gold credit card"
+            fill
+            priority
+            sizes="(max-width: 900px) 100vw, 52vw"
+            className={styles.heroImage}
+          />
+          <div className={styles.recCard}>
+            <div className={styles.recBadge}>
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                <path d="M5 0.5L6.2 3.8L9.5 5L6.2 6.2L5 9.5L3.8 6.2L0.5 5L3.8 3.8L5 0.5Z" fill="currentColor"/>
+              </svg>
+              AI Recommendation
+            </div>
+            <div className={styles.recBody}>
+              <div className={styles.recInfo}>
+                <p className={styles.recLabel}>Your best card right now</p>
+                <p className={styles.recName}>Amex Gold Card</p>
+                <p className={styles.recValue}>$1,248 potential annual value →</p>
+              </div>
+              <div className={styles.recCardArt}>
+                <div className={styles.cardChip} aria-hidden="true" />
+                <div className={styles.cardLogo} aria-hidden="true">AMEX</div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <section id="how-it-works" className={styles.steps} aria-labelledby="steps-title">
+        <h2 id="steps-title" className={styles.stepsHeading}>
+          Your journey<br />to a better card
+        </h2>
+        <div className={styles.stepFlow}>
+          {steps.map((step, i) => (
+            <React.Fragment key={step.number}>
+              <article className={styles.step}>
+                <div className={styles.stepIcon}>{step.icon}</div>
+                <div>
+                  <h3 className={styles.stepTitle}>{step.number}. {step.title}</h3>
+                  <p className={styles.stepCopy}>{step.copy}</p>
+                </div>
+              </article>
+              {i < steps.length - 1 && (
+                <div className={styles.stepArrow} aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M5 10h10M11 6l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+              )}
+            </React.Fragment>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }
