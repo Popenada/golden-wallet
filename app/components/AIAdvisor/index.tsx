@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import ReactMarkdown from "react-markdown"
 import useCardStore from "@/app/store/useCardStore"
 
 const examples = [
@@ -23,6 +24,7 @@ export default function AIAdvisor() {
         setRecommendation("")
         try {
             const response = await fetch('/api/advisor', {
+                // Send POST request to backend with card information and spending description
                 method: 'POST',
                 headers: {
                     'Content-Type' : 'application/json'
@@ -34,9 +36,17 @@ export default function AIAdvisor() {
                 const data = await response.json().catch(() => null)
                 throw new Error(data?.error ?? 'Request failed')
             }
-            const data = await response.json()
+            // Have a reader process to get response back from the ReadableStream pipe
+            // response.body forced to be not null
+            const reader = response.body!.getReader()
+            const decoder = new TextDecoder()
             
-            setRecommendation(data.recommendation)
+            while (true) {
+                const { done, value } = await reader.read()
+                if (done) break
+                const token = decoder.decode(value)
+                setRecommendation(prev => prev + token)
+            }
         } catch (error) {
             console.error(error)
             setErrorMessage(
@@ -94,7 +104,7 @@ export default function AIAdvisor() {
             </button>
 
             <div aria-live="polite">
-            {isLoading ? (
+            {isLoading && !recommendation ? (
                 <div className="rounded-xl border border-[#2A2318] bg-[#1E1810] p-4">
                     <p className="mb-3 text-xs font-bold uppercase tracking-[0.12em] text-[#D4AF37]">
                         Reading wallet
@@ -127,9 +137,9 @@ export default function AIAdvisor() {
                     <p className="mb-2 text-xs font-bold uppercase tracking-[0.12em] text-[#D4AF37]">
                         Recommendation
                     </p>
-                    <p className="whitespace-pre-wrap text-sm leading-relaxed text-[#F5EED6]">
-                        {recommendation}
-                    </p>
+                    <div className="text-sm leading-relaxed text-[#F5EED6] [&_strong]:text-[#D4AF37] [&_ol]:list-decimal [&_ol]:pl-4 [&_ul]:list-disc [&_ul]:pl-4 [&_li]:mt-1">
+                        <ReactMarkdown>{recommendation}</ReactMarkdown>
+                    </div>
                     <button
                         type="button"
                         onClick={() => setRecommendation("")}
