@@ -3,6 +3,7 @@
 import { useState } from "react";
 import useCardStore from "@/app/store/useCardStore";
 import { CreditCard, RewardRates } from "@/app/types";
+import { CARD_DATABASE, CardTemplate } from "@/app/data/cards-database";
 
 const initialRates: RewardRates = {
   dining: 0,
@@ -36,6 +37,25 @@ export default function CardManager() {
   const [issuer, setIssuer] = useState("");
   const [rates, setRates] = useState<RewardRates>(initialRates);
   const [notice, setNotice] = useState<Notice | null>(null);
+  const [query, setQuery] = useState("");
+  const [showSuggestions, setShowSuggestions] = useState(false);
+
+  const suggestions: CardTemplate[] =
+    query.length > 0
+      ? CARD_DATABASE.filter(
+          (c) =>
+            c.name.toLowerCase().includes(query.toLowerCase()) ||
+            c.issuer.toLowerCase().includes(query.toLowerCase())
+        ).slice(0, 6)
+      : [];
+
+  function handleSelectTemplate(template: CardTemplate) {
+    setName(template.name);
+    setIssuer(template.issuer);
+    setRates(template.rates);
+    setQuery("");
+    setShowSuggestions(false);
+  }
 
   const hasRewardRate = Object.values(rates).some((rate) => rate > 0);
   const canAddCard = name.trim().length > 0 && hasRewardRate;
@@ -82,6 +102,36 @@ export default function CardManager() {
   return (
     <div className="flex flex-col gap-6">
       <form onSubmit={handleAddCard} className="flex flex-col gap-4">
+        <div className="relative flex flex-col gap-1.5">
+          <label className="text-xs font-bold uppercase tracking-[0.12em] text-[#D4AF37]">
+            Search cards
+          </label>
+          <input
+            value={query}
+            onChange={(e) => { setQuery(e.target.value); setShowSuggestions(true); }}
+            onFocus={() => setShowSuggestions(true)}
+            onBlur={() => setTimeout(() => setShowSuggestions(false), 100)}
+            placeholder="Chase Sapphire, Amex Gold..."
+            className={`${inputCls} normal-case tracking-normal`}
+          />
+          {showSuggestions && suggestions.length > 0 && (
+            <ul className="absolute top-full z-10 mt-1 w-full overflow-hidden rounded-xl border border-[#2A2318] bg-[#161209] shadow-xl">
+              {suggestions.map((card) => (
+                <li key={card.name}>
+                  <button
+                    type="button"
+                    onMouseDown={() => handleSelectTemplate(card)}
+                    className="flex w-full items-center justify-between gap-3 px-4 py-2.5 text-left hover:bg-[#2A2318]"
+                  >
+                    <span className="text-sm font-medium text-[#F5EED6]">{card.name}</span>
+                    <span className="flex-shrink-0 text-xs text-[#9A8A6A]">{card.issuer}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
         <div className="grid gap-3 sm:grid-cols-2">
           <label className="flex flex-col gap-1.5 text-xs font-bold uppercase tracking-[0.12em] text-[#D4AF37]">
             Card name
