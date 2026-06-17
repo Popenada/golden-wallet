@@ -14,12 +14,14 @@ export type CreditCard = {
     name: string
     issuer?: string
     rates: RewardRates
+    pointValue?: number
 }
 // Optimization result type of getBestCard to be returned
 export type OptimizationResult = {
     card: CreditCard
     rewardAmount: number
     rewardRate: number
+    effectiveValue: number
 }
 export type CardStore = {
     cards: CreditCard[] // Cards is type object of credit card type 
