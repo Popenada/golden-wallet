@@ -36,6 +36,7 @@ export default function CardManager() {
   const [name, setName] = useState("");
   const [issuer, setIssuer] = useState("");
   const [rates, setRates] = useState<RewardRates>(initialRates);
+  const [pointValue, setPointValue] = useState(1);
   const [notice, setNotice] = useState<Notice | null>(null);
   const [query, setQuery] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -78,10 +79,11 @@ export default function CardManager() {
       });
       return;
     }
-    addCard({ name: trimmedName, issuer: issuer.trim(), rates });
+    addCard({ name: trimmedName, issuer: issuer.trim(), rates, pointValue });
     setName("");
     setIssuer("");
     setRates(initialRates);
+    setPointValue(1);
     setNotice({ tone: "success", message: `${trimmedName} added to your wallet.` });
   }
 
@@ -185,6 +187,29 @@ export default function CardManager() {
           </p>
         </div>
 
+        <div className="flex flex-col gap-1.5">
+          <label className="text-xs font-bold uppercase tracking-[0.12em] text-[#D4AF37]">
+            Point Value (¢)
+          </label>
+          <div className="relative">
+            <input
+              type="number"
+              value={pointValue}
+              onChange={(e) => setPointValue(parseFloat(e.target.value) || 1)}
+              min="0.1"
+              max="10"
+              step="0.1"
+              className={`${inputCls} pr-7`}
+            />
+            <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[#5A4F3A]">
+              ¢
+            </span>
+          </div>
+          <p className="text-xs leading-5 text-[#5A4F3A]">
+            1.0 = cash back · Chase UR ≈ 2.0 · Amex MR ≈ 1.8 · Citi TY ≈ 1.7
+          </p>
+        </div>
+
         <button
           type="submit"
           disabled={!canAddCard}
@@ -262,6 +287,11 @@ export default function CardManager() {
                         {cat} {r}%
                       </span>
                     ))}
+                  {card.pointValue && card.pointValue !== 1 && (
+                    <span className="rounded-md bg-[#2A1F00] px-2 py-0.5 text-xs text-[#D4AF37]">
+                      {card.pointValue}¢/pt
+                    </span>
+                  )}
                 </div>
               </div>
             </li>

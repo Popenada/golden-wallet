@@ -144,11 +144,17 @@ export default function PurchaseAdvisor() {
               </div>
               <div className="sm:text-right">
                 <p className="text-3xl font-bold leading-none text-[#4ADE80]">
-                  {formatCurrency(results[0].rewardAmount)}
+                  {formatCurrency(results[0].effectiveValue)}
                 </p>
-                <p className="mt-1 text-xs uppercase tracking-[0.12em] text-[#9A8A6A]">
-                  estimated reward
-                </p>
+                {(results[0].card.pointValue ?? 1) > 1 ? (
+                  <p className="mt-1 text-xs text-[#9A8A6A]">
+                    from {formatCurrency(results[0].rewardAmount)} earned · {results[0].card.pointValue}¢/pt
+                  </p>
+                ) : (
+                  <p className="mt-1 text-xs uppercase tracking-[0.12em] text-[#9A8A6A]">
+                    estimated reward
+                  </p>
+                )}
               </div>
             </div>
           </div>
@@ -176,9 +182,11 @@ export default function PurchaseAdvisor() {
                 </div>
                 <div className="text-right">
                   <p className="text-sm font-semibold text-[#4ADE80]">
-                    {formatCurrency(result.rewardAmount)}
+                    {formatCurrency(result.effectiveValue)}
                   </p>
-                  <p className="text-xs text-[#9A8A6A]">earned</p>
+                  <p className="text-xs text-[#9A8A6A]">
+                    {(result.card.pointValue ?? 1) > 1 ? `${result.card.pointValue}¢/pt` : "earned"}
+                  </p>
                 </div>
               </li>
             ))}
