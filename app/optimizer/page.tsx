@@ -2,6 +2,7 @@ import CardManager from "../components/CardManager";
 import PurchaseAdvisor from "../components/PurchaseAdvisor";
 import AIAdvisor from "../components/AIAdvisor";
 import CardChart from "../components/CardChart";
+import WalletGaps from "../components/WalletGaps";
 import type { ReactNode } from "react";
 
 function AdvisorPanel({
@@ -125,6 +126,14 @@ export default function Home() {
             </AdvisorPanel>
           </div>
         </div>
+
+        <AdvisorPanel
+          eyebrow="Wallet health"
+          title="Coverage Gap Analysis"
+          description="See where your wallet is strong and where a better card could earn you more."
+        >
+          <WalletGaps />
+        </AdvisorPanel>
 
         <AdvisorPanel
           eyebrow="Rate map"
