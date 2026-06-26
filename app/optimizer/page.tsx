@@ -3,6 +3,7 @@ import PurchaseAdvisor from "../components/PurchaseAdvisor";
 import AIAdvisor from "../components/AIAdvisor";
 import CardChart from "../components/CardChart";
 import WalletGaps from "../components/WalletGaps";
+import Wallet from "../components/Wallet";
 import type { ReactNode } from "react";
 
 function AdvisorPanel({
@@ -96,11 +97,19 @@ export default function Home() {
           </div>
         </header>
 
+        <AdvisorPanel
+          eyebrow="Your wallet"
+          title="Cards you carry"
+          description="Cards added below appear here. The advisor uses this wallet for every recommendation."
+        >
+          <Wallet />
+        </AdvisorPanel>
+
         <div className="grid items-start gap-6 xl:grid-cols-[420px_minmax(0,1fr)]">
           <AdvisorPanel
             eyebrow="Wallet setup"
-            title="Cards you actually carry"
-            description="Add each card once with the rates that matter. The advisor uses this saved wallet for every recommendation."
+            title="Add a card"
+            description="Search for your card or enter rates manually. It will appear in your wallet above."
           >
             <CardManager />
           </AdvisorPanel>
