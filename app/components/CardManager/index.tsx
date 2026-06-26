@@ -29,7 +29,7 @@ const inputCls =
 type Notice = { tone: "success" | "error"; message: string }
 
 export default function CardManager() {
-  const { addCard } = useCardStore();
+  const { cards, addCard } = useCardStore();
   const [name, setName] = useState("");
   const [issuer, setIssuer] = useState("");
   const [rates, setRates] = useState<RewardRates>(initialRates);
@@ -74,6 +74,10 @@ export default function CardManager() {
         tone: "error",
         message: "Add at least one reward rate above 0% before saving.",
       });
+      return;
+    }
+    if (cards.some((c) => c.name.toLowerCase() === trimmedName.toLowerCase())) {
+      setNotice({ tone: "error", message: `${trimmedName} is already in your wallet.` });
       return;
     }
     addCard({ name: trimmedName, issuer: issuer.trim(), rates, pointValue });

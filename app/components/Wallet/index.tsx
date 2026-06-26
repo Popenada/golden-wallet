@@ -59,7 +59,6 @@ export default function Wallet() {
           const topRates = Object.entries(card.rates)
             .filter(([, r]) => r > 0)
             .sort(([, a], [, b]) => b - a)
-            .slice(0, 3)
 
           return (
             <div
