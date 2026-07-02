@@ -63,12 +63,14 @@ export default function CardManager() {
   }
 
   function handleAddCard(e: React.BaseSyntheticEvent) {
-    e.preventDefault();
+    e.preventDefault()
+    
     const trimmedName = name.trim();
     if (!trimmedName) {
       setNotice({ tone: "error", message: "Enter a card name before saving." });
       return;
     }
+    // No reward rate present for credit card handling
     if (!hasRewardRate) {
       setNotice({
         tone: "error",
@@ -76,6 +78,7 @@ export default function CardManager() {
       });
       return;
     }
+    // Error handling for when user tries to add a second credit card with same name
     if (cards.some((c) => c.name.toLowerCase() === trimmedName.toLowerCase())) {
       setNotice({ tone: "error", message: `${trimmedName} is already in your wallet.` });
       return;
