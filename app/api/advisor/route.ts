@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 
-// Put outside POST function client agent 
-const client = new OpenAI()
-
 export async function POST(request: NextRequest) {
+    const client = new OpenAI()
+
     const body = await request.json().catch(() => null)
     if (!body) {
         return NextResponse.json(
