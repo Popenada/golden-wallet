@@ -1,0 +1,736 @@
+{
+ "Resources": {
+  "GoldenWalletVpc65A98B39": {
+   "Type": "AWS::EC2::VPC",
+   "Properties": {
+    "CidrBlock": "10.0.0.0/16",
+    "EnableDnsHostnames": true,
+    "EnableDnsSupport": true,
+    "InstanceTenancy": "default",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "GoldenWalletStack/GoldenWalletVpc"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletVpc/Resource"
+   }
+  },
+  "GoldenWalletVpcpublicSubnet1SubnetCF1A93F2": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": "us-east-1a",
+    "CidrBlock": "10.0.0.0/24",
+    "MapPublicIpOnLaunch": true,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "public"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Public"
+     },
+     {
+      "Key": "Name",
+      "Value": "GoldenWalletStack/GoldenWalletVpc/publicSubnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "GoldenWalletVpc65A98B39"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletVpc/publicSubnet1/Subnet"
+   }
+  },
+  "GoldenWalletVpcpublicSubnet1RouteTableF95205E3": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "GoldenWalletStack/GoldenWalletVpc/publicSubnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "GoldenWalletVpc65A98B39"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletVpc/publicSubnet1/RouteTable"
+   }
+  },
+  "GoldenWalletVpcpublicSubnet1RouteTableAssociationD4BC7CE8": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "GoldenWalletVpcpublicSubnet1RouteTableF95205E3"
+    },
+    "SubnetId": {
+     "Ref": "GoldenWalletVpcpublicSubnet1SubnetCF1A93F2"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletVpc/publicSubnet1/RouteTableAssociation"
+   }
+  },
+  "GoldenWalletVpcpublicSubnet1DefaultRoute0AD96D0B": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "GatewayId": {
+     "Ref": "GoldenWalletVpcIGW6A62A5B3"
+    },
+    "RouteTableId": {
+     "Ref": "GoldenWalletVpcpublicSubnet1RouteTableF95205E3"
+    }
+   },
+   "DependsOn": [
+    "GoldenWalletVpcVPCGWAFF83F0B"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletVpc/publicSubnet1/DefaultRoute"
+   }
+  },
+  "GoldenWalletVpcpublicSubnet2Subnet4E7306BA": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": "us-east-1b",
+    "CidrBlock": "10.0.1.0/24",
+    "MapPublicIpOnLaunch": true,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "public"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Public"
+     },
+     {
+      "Key": "Name",
+      "Value": "GoldenWalletStack/GoldenWalletVpc/publicSubnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "GoldenWalletVpc65A98B39"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletVpc/publicSubnet2/Subnet"
+   }
+  },
+  "GoldenWalletVpcpublicSubnet2RouteTable9A408DC1": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "GoldenWalletStack/GoldenWalletVpc/publicSubnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "GoldenWalletVpc65A98B39"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletVpc/publicSubnet2/RouteTable"
+   }
+  },
+  "GoldenWalletVpcpublicSubnet2RouteTableAssociationF152918C": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "GoldenWalletVpcpublicSubnet2RouteTable9A408DC1"
+    },
+    "SubnetId": {
+     "Ref": "GoldenWalletVpcpublicSubnet2Subnet4E7306BA"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletVpc/publicSubnet2/RouteTableAssociation"
+   }
+  },
+  "GoldenWalletVpcpublicSubnet2DefaultRoute1DF79005": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "GatewayId": {
+     "Ref": "GoldenWalletVpcIGW6A62A5B3"
+    },
+    "RouteTableId": {
+     "Ref": "GoldenWalletVpcpublicSubnet2RouteTable9A408DC1"
+    }
+   },
+   "DependsOn": [
+    "GoldenWalletVpcVPCGWAFF83F0B"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletVpc/publicSubnet2/DefaultRoute"
+   }
+  },
+  "GoldenWalletVpcIGW6A62A5B3": {
+   "Type": "AWS::EC2::InternetGateway",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "GoldenWalletStack/GoldenWalletVpc"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletVpc/IGW"
+   }
+  },
+  "GoldenWalletVpcVPCGWAFF83F0B": {
+   "Type": "AWS::EC2::VPCGatewayAttachment",
+   "Properties": {
+    "InternetGatewayId": {
+     "Ref": "GoldenWalletVpcIGW6A62A5B3"
+    },
+    "VpcId": {
+     "Ref": "GoldenWalletVpc65A98B39"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletVpc/VPCGW"
+   }
+  },
+  "GoldenWalletCluster899EB8C0": {
+   "Type": "AWS::ECS::Cluster",
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletCluster/Resource"
+   }
+  },
+  "GoldenWalletServiceLBC3B7FCA7": {
+   "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+   "Properties": {
+    "LoadBalancerAttributes": [
+     {
+      "Key": "deletion_protection.enabled",
+      "Value": "false"
+     }
+    ],
+    "Scheme": "internet-facing",
+    "SecurityGroups": [
+     {
+      "Fn::GetAtt": [
+       "GoldenWalletServiceLBSecurityGroupCB8FD6F7",
+       "GroupId"
+      ]
+     }
+    ],
+    "Subnets": [
+     {
+      "Ref": "GoldenWalletVpcpublicSubnet1SubnetCF1A93F2"
+     },
+     {
+      "Ref": "GoldenWalletVpcpublicSubnet2Subnet4E7306BA"
+     }
+    ],
+    "Type": "application"
+   },
+   "DependsOn": [
+    "GoldenWalletVpcpublicSubnet1DefaultRoute0AD96D0B",
+    "GoldenWalletVpcpublicSubnet1RouteTableAssociationD4BC7CE8",
+    "GoldenWalletVpcpublicSubnet2DefaultRoute1DF79005",
+    "GoldenWalletVpcpublicSubnet2RouteTableAssociationF152918C"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletService/LB/Resource"
+   }
+  },
+  "GoldenWalletServiceLBSecurityGroupCB8FD6F7": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "Automatically created Security Group for ELB GoldenWalletStackGoldenWalletServiceLBE2DE6433",
+    "SecurityGroupIngress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow from anyone on port 80",
+      "FromPort": 80,
+      "IpProtocol": "tcp",
+      "ToPort": 80
+     }
+    ],
+    "VpcId": {
+     "Ref": "GoldenWalletVpc65A98B39"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletService/LB/SecurityGroup/Resource"
+   }
+  },
+  "GoldenWalletServiceLBSecurityGrouptoGoldenWalletStackGoldenWalletServiceSecurityGroupEEC3ED353000D272AD69": {
+   "Type": "AWS::EC2::SecurityGroupEgress",
+   "Properties": {
+    "Description": "Load balancer to target",
+    "DestinationSecurityGroupId": {
+     "Fn::GetAtt": [
+      "GoldenWalletServiceSecurityGroup85A2D1E9",
+      "GroupId"
+     ]
+    },
+    "FromPort": 3000,
+    "GroupId": {
+     "Fn::GetAtt": [
+      "GoldenWalletServiceLBSecurityGroupCB8FD6F7",
+      "GroupId"
+     ]
+    },
+    "IpProtocol": "tcp",
+    "ToPort": 3000
+   },
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletService/LB/SecurityGroup/to GoldenWalletStackGoldenWalletServiceSecurityGroupEEC3ED35:3000"
+   }
+  },
+  "GoldenWalletServiceLBPublicListener799BE854": {
+   "Type": "AWS::ElasticLoadBalancingV2::Listener",
+   "Properties": {
+    "DefaultActions": [
+     {
+      "TargetGroupArn": {
+       "Ref": "GoldenWalletServiceLBPublicListenerECSGroup70517C51"
+      },
+      "Type": "forward"
+     }
+    ],
+    "LoadBalancerArn": {
+     "Ref": "GoldenWalletServiceLBC3B7FCA7"
+    },
+    "Port": 80,
+    "Protocol": "HTTP"
+   },
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletService/LB/PublicListener/Resource"
+   }
+  },
+  "GoldenWalletServiceLBPublicListenerECSGroup70517C51": {
+   "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+   "Properties": {
+    "HealthCheckPath": "/",
+    "Port": 80,
+    "Protocol": "HTTP",
+    "TargetGroupAttributes": [
+     {
+      "Key": "stickiness.enabled",
+      "Value": "false"
+     }
+    ],
+    "TargetType": "ip",
+    "VpcId": {
+     "Ref": "GoldenWalletVpc65A98B39"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletService/LB/PublicListener/ECSGroup/Resource"
+   }
+  },
+  "GoldenWalletServiceTaskDefTaskRoleF4F9B8AB": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "ecs-tasks.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletService/TaskDef/TaskRole/Resource"
+   }
+  },
+  "GoldenWalletServiceTaskDef0C86E54A": {
+   "Type": "AWS::ECS::TaskDefinition",
+   "Properties": {
+    "ContainerDefinitions": [
+     {
+      "Environment": [
+       {
+        "Name": "PORT",
+        "Value": "3000"
+       },
+       {
+        "Name": "NODE_ENV",
+        "Value": "production"
+       }
+      ],
+      "Essential": true,
+      "Image": {
+       "Fn::Sub": "528757790498.dkr.ecr.us-east-1.${AWS::URLSuffix}/cdk-hnb659fds-container-assets-528757790498-us-east-1:c0c8977a0a7eacdc9b87424eecbb067dc7fc10fca19c82fb4fdf49304af9f126"
+      },
+      "LogConfiguration": {
+       "LogDriver": "awslogs",
+       "Options": {
+        "awslogs-group": {
+         "Ref": "GoldenWalletServiceTaskDefwebLogGroupF80AD348"
+        },
+        "awslogs-stream-prefix": "GoldenWalletService",
+        "awslogs-region": "us-east-1"
+       }
+      },
+      "Name": "web",
+      "PortMappings": [
+       {
+        "ContainerPort": 3000,
+        "Protocol": "tcp"
+       }
+      ],
+      "Secrets": [
+       {
+        "Name": "OPENAI_API_KEY",
+        "ValueFrom": {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":secretsmanager:us-east-1:528757790498:secret:golden-wallet/openai-api-key:OPENAI_API_KEY::"
+          ]
+         ]
+        }
+       }
+      ]
+     }
+    ],
+    "Cpu": "256",
+    "ExecutionRoleArn": {
+     "Fn::GetAtt": [
+      "GoldenWalletServiceTaskDefExecutionRoleB6E45A7B",
+      "Arn"
+     ]
+    },
+    "Family": "GoldenWalletStackGoldenWalletServiceTaskDef76E6147B",
+    "Memory": "512",
+    "NetworkMode": "awsvpc",
+    "RequiresCompatibilities": [
+     "FARGATE"
+    ],
+    "TaskRoleArn": {
+     "Fn::GetAtt": [
+      "GoldenWalletServiceTaskDefTaskRoleF4F9B8AB",
+      "Arn"
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletService/TaskDef/Resource"
+   }
+  },
+  "GoldenWalletServiceTaskDefwebLogGroupF80AD348": {
+   "Type": "AWS::Logs::LogGroup",
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletService/TaskDef/web/LogGroup/Resource"
+   }
+  },
+  "GoldenWalletServiceTaskDefExecutionRoleB6E45A7B": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "ecs-tasks.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletService/TaskDef/ExecutionRole/Resource"
+   }
+  },
+  "GoldenWalletServiceTaskDefExecutionRoleDefaultPolicy86358CFA": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "ecr:BatchCheckLayerAvailability",
+        "ecr:GetDownloadUrlForLayer",
+        "ecr:BatchGetImage"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":ecr:us-east-1:528757790498:repository/cdk-hnb659fds-container-assets-528757790498-us-east-1"
+         ]
+        ]
+       }
+      },
+      {
+       "Action": "ecr:GetAuthorizationToken",
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "GoldenWalletServiceTaskDefwebLogGroupF80AD348",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": [
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:DescribeSecret"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":secretsmanager:us-east-1:528757790498:secret:golden-wallet/openai-api-key-??????"
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "GoldenWalletServiceTaskDefExecutionRoleDefaultPolicy86358CFA",
+    "Roles": [
+     {
+      "Ref": "GoldenWalletServiceTaskDefExecutionRoleB6E45A7B"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletService/TaskDef/ExecutionRole/DefaultPolicy/Resource"
+   }
+  },
+  "GoldenWalletService8B75C90A": {
+   "Type": "AWS::ECS::Service",
+   "Properties": {
+    "Cluster": {
+     "Ref": "GoldenWalletCluster899EB8C0"
+    },
+    "DeploymentConfiguration": {
+     "DeploymentCircuitBreaker": {
+      "Enable": true,
+      "Rollback": true
+     },
+     "MaximumPercent": 200,
+     "MinimumHealthyPercent": 50
+    },
+    "DeploymentController": {
+     "Type": "ECS"
+    },
+    "DesiredCount": 1,
+    "EnableECSManagedTags": false,
+    "HealthCheckGracePeriodSeconds": 60,
+    "LaunchType": "FARGATE",
+    "LoadBalancers": [
+     {
+      "ContainerName": "web",
+      "ContainerPort": 3000,
+      "TargetGroupArn": {
+       "Ref": "GoldenWalletServiceLBPublicListenerECSGroup70517C51"
+      }
+     }
+    ],
+    "NetworkConfiguration": {
+     "AwsvpcConfiguration": {
+      "AssignPublicIp": "ENABLED",
+      "SecurityGroups": [
+       {
+        "Fn::GetAtt": [
+         "GoldenWalletServiceSecurityGroup85A2D1E9",
+         "GroupId"
+        ]
+       }
+      ],
+      "Subnets": [
+       {
+        "Ref": "GoldenWalletVpcpublicSubnet1SubnetCF1A93F2"
+       },
+       {
+        "Ref": "GoldenWalletVpcpublicSubnet2Subnet4E7306BA"
+       }
+      ]
+     }
+    },
+    "TaskDefinition": {
+     "Ref": "GoldenWalletServiceTaskDef0C86E54A"
+    }
+   },
+   "DependsOn": [
+    "GoldenWalletServiceLBPublicListenerECSGroup70517C51",
+    "GoldenWalletServiceLBPublicListener799BE854",
+    "GoldenWalletServiceTaskDefTaskRoleF4F9B8AB"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletService/Service/Service"
+   }
+  },
+  "GoldenWalletServiceSecurityGroup85A2D1E9": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "GoldenWalletStack/GoldenWalletService/Service/SecurityGroup",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "GoldenWalletVpc65A98B39"
+    }
+   },
+   "DependsOn": [
+    "GoldenWalletServiceTaskDefTaskRoleF4F9B8AB"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletService/Service/SecurityGroup/Resource"
+   }
+  },
+  "GoldenWalletServiceSecurityGroupfromGoldenWalletStackGoldenWalletServiceLBSecurityGroupDADA685D3000BF5AD53E": {
+   "Type": "AWS::EC2::SecurityGroupIngress",
+   "Properties": {
+    "Description": "Load balancer to target",
+    "FromPort": 3000,
+    "GroupId": {
+     "Fn::GetAtt": [
+      "GoldenWalletServiceSecurityGroup85A2D1E9",
+      "GroupId"
+     ]
+    },
+    "IpProtocol": "tcp",
+    "SourceSecurityGroupId": {
+     "Fn::GetAtt": [
+      "GoldenWalletServiceLBSecurityGroupCB8FD6F7",
+      "GroupId"
+     ]
+    },
+    "ToPort": 3000
+   },
+   "DependsOn": [
+    "GoldenWalletServiceTaskDefTaskRoleF4F9B8AB"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/GoldenWalletService/Service/SecurityGroup/from GoldenWalletStackGoldenWalletServiceLBSecurityGroupDADA685D:3000"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/31RW0/zMAz9LbxnASoBz2NcNAmJqUW8Tm5qglmWVLGzaar631HT3YBP31OOj49zfCl0cXujry5gyxPTrCaOat1VAmalYMvLDk2hu/fWqNmHf1/M1CLVjkyVao8ycCdUhiT4BrXDE3/ipszBEAgFfxQPYO4Fo0d5BsEt7PY2+2gqAuZzjV5UhSZFkt1zDKnNBv8lHm1E5j/03Ge+V2hYdzOXWDAOqgN8gmhhaJlXD/hBng4N/2aCFyCP8Yzb11YYN2TGJYww2y1bkGFU1tO2dWTyKl4CNPfgwBtsfpWjAxYyLkBTZwV5uyl09+/qPMSP+FxHLOj3mgM+y79BtCjHRZ6FvSJY664M41HzuwiOTD7UiIbp4hKYUVg/BLPCOF+DHS6OMuR0iW1gkhB398CoXLCsu5dgj44H3PeqRA4pjut7TdImUfmjSsCSt73yoUH9xZebotDXd/rq4ouJJjF5oTXqcny/Aajeq9HWAgAA"
+   },
+   "Metadata": {
+    "aws:cdk:path": "GoldenWalletStack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Outputs": {
+  "GoldenWalletServiceLoadBalancerDNS37399EDD": {
+   "Value": {
+    "Fn::GetAtt": [
+     "GoldenWalletServiceLBC3B7FCA7",
+     "DNSName"
+    ]
+   }
+  },
+  "GoldenWalletServiceServiceURL423B9211": {
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "http://",
+      {
+       "Fn::GetAtt": [
+        "GoldenWalletServiceLBC3B7FCA7",
+        "DNSName"
+       ]
+      }
+     ]
+    ]
+   }
+  },
+  "ServiceUrl": {
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "http://",
+      {
+       "Fn::GetAtt": [
+        "GoldenWalletServiceLBC3B7FCA7",
+        "DNSName"
+       ]
+      }
+     ]
+    ]
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

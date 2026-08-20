@@ -1,0 +1,489 @@
+{
+  "/GoldenWalletStack": [
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "<anonymous> (/Users/alfrednguyen/dev/golden_wallet/infra/bin/infra.ts:8:1)",
+        "...node internals, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/GoldenWalletStack/ServiceUrl": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ServiceUrl"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new GoldenWalletStack (/Users/alfrednguyen/dev/golden_wallet/infra/lib/golden-wallet-stack.ts:67:5)",
+        "<anonymous> (/Users/alfrednguyen/dev/golden_wallet/infra/bin/infra.ts:8:1)",
+        "...node internals, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/GoldenWalletStack/BootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/GoldenWalletStack/CheckBootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CheckBootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletVpc/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletVpc65A98B39"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in aws-cdk-lib...",
+        "new GoldenWalletStack (/Users/alfrednguyen/dev/golden_wallet/infra/lib/golden-wallet-stack.ts:20:17)",
+        "<anonymous> (/Users/alfrednguyen/dev/golden_wallet/infra/bin/infra.ts:8:1)",
+        "...node internals, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletVpc/IGW": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletVpcIGW6A62A5B3"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in aws-cdk-lib...",
+        "new GoldenWalletStack (/Users/alfrednguyen/dev/golden_wallet/infra/lib/golden-wallet-stack.ts:20:17)",
+        "<anonymous> (/Users/alfrednguyen/dev/golden_wallet/infra/bin/infra.ts:8:1)",
+        "...node internals, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletVpc/VPCGW": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletVpcVPCGWAFF83F0B"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in aws-cdk-lib...",
+        "new GoldenWalletStack (/Users/alfrednguyen/dev/golden_wallet/infra/lib/golden-wallet-stack.ts:20:17)",
+        "<anonymous> (/Users/alfrednguyen/dev/golden_wallet/infra/bin/infra.ts:8:1)",
+        "...node internals, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletCluster/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletCluster899EB8C0"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Cluster2 in aws-cdk-lib...",
+        "new GoldenWalletStack (/Users/alfrednguyen/dev/golden_wallet/infra/lib/golden-wallet-stack.ts:28:21)",
+        "<anonymous> (/Users/alfrednguyen/dev/golden_wallet/infra/bin/infra.ts:8:1)",
+        "...node internals, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletService/LoadBalancerDNS": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletServiceLoadBalancerDNS37399EDD"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new ApplicationLoadBalancedFargateService2 in aws-cdk-lib...",
+        "new GoldenWalletStack (/Users/alfrednguyen/dev/golden_wallet/infra/lib/golden-wallet-stack.ts:36:21)",
+        "<anonymous> (/Users/alfrednguyen/dev/golden_wallet/infra/bin/infra.ts:8:1)",
+        "...node internals, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletService/ServiceURL": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletServiceServiceURL423B9211"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new ApplicationLoadBalancedFargateService2 in aws-cdk-lib...",
+        "new GoldenWalletStack (/Users/alfrednguyen/dev/golden_wallet/infra/lib/golden-wallet-stack.ts:36:21)",
+        "<anonymous> (/Users/alfrednguyen/dev/golden_wallet/infra/bin/infra.ts:8:1)",
+        "...node internals, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletService/Service": [
+    {
+      "type": "aws:cdk:warning",
+      "data": "minHealthyPercent has not been configured so the default value of 50% is used. The number of running tasks will decrease below the desired count during deployments etc. See https://github.com/aws/aws-cdk/issues/31705 [ack: @aws-cdk/aws-ecs:minHealthyPercent]",
+      "trace": [
+        "Annotations.addMessage (/Users/alfrednguyen/dev/golden_wallet/infra/node_modules/aws-cdk-lib/core/lib/annotations.js:1:3506)",
+        "Annotations.addWarningV2 (/Users/alfrednguyen/dev/golden_wallet/infra/node_modules/aws-cdk-lib/core/lib/annotations.js:1:2194)",
+        "new BaseService2 (/Users/alfrednguyen/dev/golden_wallet/infra/node_modules/aws-cdk-lib/aws-ecs/lib/base/base-service.js:1:16295)",
+        "new BaseService2 (/Users/alfrednguyen/dev/golden_wallet/infra/node_modules/aws-cdk-lib/core/lib/no-box-stack-traces.js:1:345)",
+        "new FargateService2 (/Users/alfrednguyen/dev/golden_wallet/infra/node_modules/aws-cdk-lib/aws-ecs/lib/fargate/fargate-service.js:1:7829)",
+        "new FargateService2 (/Users/alfrednguyen/dev/golden_wallet/infra/node_modules/aws-cdk-lib/core/lib/prop-injectable.js:1:855)",
+        "new ApplicationLoadBalancedFargateService2 (/Users/alfrednguyen/dev/golden_wallet/infra/node_modules/aws-cdk-lib/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:1:7416)",
+        "new ApplicationLoadBalancedFargateService2 (/Users/alfrednguyen/dev/golden_wallet/infra/node_modules/aws-cdk-lib/core/lib/prop-injectable.js:1:855)",
+        "new GoldenWalletStack (/Users/alfrednguyen/dev/golden_wallet/infra/lib/golden-wallet-stack.ts:36:21)",
+        "Object.<anonymous> (/Users/alfrednguyen/dev/golden_wallet/infra/bin/infra.ts:8:1)",
+        "Module._compile (node:internal/modules/cjs/loader:1730:14)",
+        "Module.m._compile (/Users/alfrednguyen/dev/golden_wallet/infra/node_modules/ts-node/src/index.ts:1618:23)",
+        "node:internal/modules/cjs/loader:1895:10",
+        "Object.require.extensions.<computed> [as .ts] (/Users/alfrednguyen/dev/golden_wallet/infra/node_modules/ts-node/src/index.ts:1621:12)",
+        "Module.load (node:internal/modules/cjs/loader:1465:32)",
+        "Function._load (node:internal/modules/cjs/loader:1282:12)",
+        "TracingChannel.traceSync (node:diagnostics_channel:322:14)",
+        "wrapModuleLoad (node:internal/modules/cjs/loader:235:24)",
+        "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)",
+        "phase4 (/Users/alfrednguyen/dev/golden_wallet/infra/node_modules/ts-node/src/bin.ts:649:14)",
+        "bootstrap (/Users/alfrednguyen/dev/golden_wallet/infra/node_modules/ts-node/src/bin.ts:95:10)",
+        "main (/Users/alfrednguyen/dev/golden_wallet/infra/node_modules/ts-node/src/bin.ts:55:10)",
+        "Object.<anonymous> (/Users/alfrednguyen/dev/golden_wallet/infra/node_modules/ts-node/src/bin.ts:800:3)",
+        "Module._compile (node:internal/modules/cjs/loader:1730:14)",
+        "Object.<anonymous> (node:internal/modules/cjs/loader:1895:10)",
+        "Module.load (node:internal/modules/cjs/loader:1465:32)",
+        "Function._load (node:internal/modules/cjs/loader:1282:12)",
+        "TracingChannel.traceSync (node:diagnostics_channel:322:14)",
+        "wrapModuleLoad (node:internal/modules/cjs/loader:235:24)",
+        "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)",
+        "node:internal/main/run_main_module:36:49"
+      ]
+    }
+  ],
+  "/GoldenWalletStack/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletVpc/publicSubnet1/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletVpcpublicSubnet1SubnetCF1A93F2"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../Users/alfrednguyen/dev/golden_wallet/infra/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:268 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...aws-cdk-lib..."
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletVpc/publicSubnet1/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletVpcpublicSubnet1RouteTableF95205E3"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../Users/alfrednguyen/dev/golden_wallet/infra/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:268 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...aws-cdk-lib..."
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletVpc/publicSubnet1/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletVpcpublicSubnet1RouteTableAssociationD4BC7CE8"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../Users/alfrednguyen/dev/golden_wallet/infra/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:268 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...aws-cdk-lib..."
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletVpc/publicSubnet1/DefaultRoute": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletVpcpublicSubnet1DefaultRoute0AD96D0B"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../Users/alfrednguyen/dev/golden_wallet/infra/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:208 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new GoldenWalletStack (/Users/alfrednguyen/dev/golden_wallet/infra/lib/golden-wallet-stack.ts:20:17)",
+        "<anonymous> (/Users/alfrednguyen/dev/golden_wallet/infra/bin/infra.ts:8:1)",
+        "...node internals, ts-node..."
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletVpc/publicSubnet2/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletVpcpublicSubnet2Subnet4E7306BA"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../Users/alfrednguyen/dev/golden_wallet/infra/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:268 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...aws-cdk-lib..."
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletVpc/publicSubnet2/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletVpcpublicSubnet2RouteTable9A408DC1"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../Users/alfrednguyen/dev/golden_wallet/infra/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:268 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...aws-cdk-lib..."
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletVpc/publicSubnet2/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletVpcpublicSubnet2RouteTableAssociationF152918C"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../Users/alfrednguyen/dev/golden_wallet/infra/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:268 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...aws-cdk-lib..."
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletVpc/publicSubnet2/DefaultRoute": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletVpcpublicSubnet2DefaultRoute1DF79005"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../Users/alfrednguyen/dev/golden_wallet/infra/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:208 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new GoldenWalletStack (/Users/alfrednguyen/dev/golden_wallet/infra/lib/golden-wallet-stack.ts:20:17)",
+        "<anonymous> (/Users/alfrednguyen/dev/golden_wallet/infra/bin/infra.ts:8:1)",
+        "...node internals, ts-node..."
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletService/LB/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletServiceLBC3B7FCA7"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new ApplicationLoadBalancedFargateService2 in aws-cdk-lib...",
+        "new GoldenWalletStack (/Users/alfrednguyen/dev/golden_wallet/infra/lib/golden-wallet-stack.ts:36:21)",
+        "<anonymous> (/Users/alfrednguyen/dev/golden_wallet/infra/bin/infra.ts:8:1)",
+        "...node internals, ts-node..."
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletService/TaskDef/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletServiceTaskDef0C86E54A"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new ApplicationLoadBalancedFargateService2 in aws-cdk-lib...",
+        "new GoldenWalletStack (/Users/alfrednguyen/dev/golden_wallet/infra/lib/golden-wallet-stack.ts:36:21)",
+        "<anonymous> (/Users/alfrednguyen/dev/golden_wallet/infra/bin/infra.ts:8:1)",
+        "...node internals, ts-node..."
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletService/Service/Service": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletService8B75C90A"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new ApplicationLoadBalancedFargateService2 in aws-cdk-lib...",
+        "new GoldenWalletStack (/Users/alfrednguyen/dev/golden_wallet/infra/lib/golden-wallet-stack.ts:36:21)",
+        "<anonymous> (/Users/alfrednguyen/dev/golden_wallet/infra/bin/infra.ts:8:1)",
+        "...node internals, ts-node..."
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletService/LB/SecurityGroup/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletServiceLBSecurityGroupCB8FD6F7"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new ApplicationLoadBalancedFargateService2 in aws-cdk-lib...",
+        "new GoldenWalletStack (/Users/alfrednguyen/dev/golden_wallet/infra/lib/golden-wallet-stack.ts:36:21)",
+        "<anonymous> (/Users/alfrednguyen/dev/golden_wallet/infra/bin/infra.ts:8:1)"
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletService/LB/SecurityGroup/to GoldenWalletStackGoldenWalletServiceSecurityGroupEEC3ED35:3000": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletServiceLBSecurityGrouptoGoldenWalletStackGoldenWalletServiceSecurityGroupEEC3ED353000D272AD69"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletService/LB/PublicListener/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletServiceLBPublicListener799BE854"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletService/TaskDef/TaskRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletServiceTaskDefTaskRoleF4F9B8AB"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new ApplicationLoadBalancedFargateService2 in aws-cdk-lib...",
+        "new GoldenWalletStack (/Users/alfrednguyen/dev/golden_wallet/infra/lib/golden-wallet-stack.ts:36:21)",
+        "<anonymous> (/Users/alfrednguyen/dev/golden_wallet/infra/bin/infra.ts:8:1)"
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletService/TaskDef/ExecutionRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletServiceTaskDefExecutionRoleB6E45A7B"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletService/Service/SecurityGroup/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletServiceSecurityGroup85A2D1E9"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new ApplicationLoadBalancedFargateService2 in aws-cdk-lib...",
+        "new GoldenWalletStack (/Users/alfrednguyen/dev/golden_wallet/infra/lib/golden-wallet-stack.ts:36:21)",
+        "<anonymous> (/Users/alfrednguyen/dev/golden_wallet/infra/bin/infra.ts:8:1)"
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletService/Service/SecurityGroup/from GoldenWalletStackGoldenWalletServiceLBSecurityGroupDADA685D:3000": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletServiceSecurityGroupfromGoldenWalletStackGoldenWalletServiceLBSecurityGroupDADA685D3000BF5AD53E"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletService/LB/PublicListener/ECSGroup/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletServiceLBPublicListenerECSGroup70517C51"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new ApplicationLoadBalancedFargateService2 in aws-cdk-lib...",
+        "new GoldenWalletStack (/Users/alfrednguyen/dev/golden_wallet/infra/lib/golden-wallet-stack.ts:36:21)"
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletService/TaskDef/web/LogGroup/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletServiceTaskDefwebLogGroupF80AD348"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/GoldenWalletStack/GoldenWalletService/TaskDef/ExecutionRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoldenWalletServiceTaskDefExecutionRoleDefaultPolicy86358CFA"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ]
+}
